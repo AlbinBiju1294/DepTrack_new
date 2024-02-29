@@ -17,7 +17,6 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import UserContext from "../../components/Contexts/UserContextProvider";
 
-
 function Copyright(props: any) {
   return (
     <Typography
@@ -40,9 +39,9 @@ function Copyright(props: any) {
 const defaultTheme = createTheme();
 
 export default function Login() {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
-  const {setUser} = useContext(UserContext)
+  const { setUser } = useContext(UserContext);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -50,9 +49,9 @@ export default function Login() {
 
     const user = {
       username: data.get("username"),
-      password: data.get("username"),
+      password: data.get("password"),
     };
-    console.log(user)
+    console.log(user);
     try {
       const response = await axios.post(
         "http://127.0.0.1:8000/api/v1/users/token/",
@@ -73,18 +72,19 @@ export default function Login() {
       ] = `Bearer ${response.data["access"]}`;
 
       const config = {
-        headers: { Authorization: `Bearer ${response.data.access}` }
+        headers: { Authorization: `Bearer ${response.data.access}` },
       };
 
       const userResponse = await axios.get(
-        "http://127.0.0.1:8000/api/v1/users/user/",config
+        "http://127.0.0.1:8000/api/v1/users/user/",
+        config
       );
 
-      console.log(userResponse)
-      localStorage.setItem('user',JSON.stringify(userResponse.data.data))
-      setUser(userResponse.data.data)
+      console.log(userResponse);
+      localStorage.setItem("user", JSON.stringify(userResponse.data.data));
+      setUser(userResponse.data.data);
 
-      navigate('/dashboard')
+      navigate("/dashboard");
     } catch {
       console.log("Error");
     }
