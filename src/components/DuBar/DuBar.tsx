@@ -77,7 +77,7 @@ const DuBar = () => {
           },
         ]}
         width={500}
-        height={200}
+        height={230}
       />:<></>}
       </div>
     </div>
