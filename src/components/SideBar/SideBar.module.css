@@ -1,0 +1,23 @@
+.sidebar
+{
+  position: fixed;
+  top: 50px;
+  left: 0;
+  background-color: white;
+  box-shadow: 0 2px 4px rgba(0, 0, 255, 0.2);
+  width: 300px;
+  height: calc(100vh - 50px);
+  padding-left: 50px;
+  padding-top: 30px;
+}
+
+.sidebar_item{
+    color: #012970;
+    font-weight: 600;
+    margin-bottom: 15px;
+    margin-left: 20px;
+}
+
+.sidebar_items{
+    display: flex;
+}
