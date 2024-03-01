@@ -12,15 +12,12 @@ const transferStatuses = ["Initiated", "Completed", "Cancelled", "Rejected"]
       <DashboardWelcome></DashboardWelcome>
         <DuBar></DuBar>
         <div className='transferContainer'>
-      <div className='transferCountDivOne'>
-      <TransferCounts status={transferStatuses[0]}/>
-      <TransferCounts status={transferStatuses[1]}/>
-      </div>
-      <div className='transferCountDivTwo'>
-      <TransferCounts status={transferStatuses[2]}/>
-      <TransferCounts status={transferStatuses[3]}/>
-      </div>
-      </div>
+          {transferStatuses.map( transferStatus => (
+             <div className='transferContainerChild'>
+             <TransferCounts status={transferStatus}/>
+             </div>
+          ))}
+        </div>
     </div>
   )
 }
